@@ -3,12 +3,14 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../slices/userSlice";
 import { BASE_URL } from "../slices/constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("nalli@gmail.com");
-  const [password, setPassword] = useState("Nalli@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate=useNavigate();
+  const[error,setError]=useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,10 +20,11 @@ export default function Login() {
         { email, password },
         { withCredentials: true }
       );
-      console.log("Login with:", { res });
       dispatch(addUser(res?.data?.user));
+      navigate('/feed')
+      
     } catch (err) {
-      console.error(err);
+      setError(err.response.data)
     }
   };
 
@@ -79,6 +82,7 @@ export default function Login() {
                 </a>
               </div>
             </div>
+           {error&&<p className="text-red-600">{error}</p>} 
 
             <button type="submit" className="btn btn-primary w-full mt-4">
               Login

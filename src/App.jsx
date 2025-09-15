@@ -9,11 +9,12 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
+import Feed from "./components/Feed";
 function App() {
   return (
     <>
       <Provider store={appStore}>
-      
         <BrowserRouter basename="/">
           <NavBar />
           <Routes>
@@ -21,11 +22,12 @@ function App() {
             <Route element={<Body />}>
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/feed" element={<Feed />} />
             </Route>
           </Routes>
-            <Footer />
+          <Footer />
         </BrowserRouter>
-      
       </Provider>
     </>
   );
