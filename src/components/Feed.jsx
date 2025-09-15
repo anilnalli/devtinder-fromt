@@ -55,7 +55,7 @@ export default function Feed() {
 
         <figure className="h-[460px] relative">
           <img
-            src={profile?.imageUrl || ""}
+            src={profile&&profile?.imageUrl || ""}
             alt={profile?.firstName || ""}
             className="object-cover w-full h-full"
           />
