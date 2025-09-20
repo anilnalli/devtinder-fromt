@@ -11,6 +11,11 @@ import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
+import ConnectionsComponent from "./components/Connections";
+import ParentFeedComponent from "./components/ParentFeedComponent";
+import AllConnections from "./components/AllConnectiions";
+
+
 function App() {
   return (
     <>
@@ -23,7 +28,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/feed" element={<Feed />} />
+              <Route path="/feed" element={<ParentFeedComponent />} />
+              <Route path="/connections" element={<ConnectionsComponent/>}/>
+              <Route path="/allconnections" element={<AllConnections/>}/>
             </Route>
           </Routes>
           <Footer />
