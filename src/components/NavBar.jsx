@@ -6,22 +6,21 @@ import { BASE_URL } from "../slices/constants";
 import { removeUser } from "../slices/userSlice";
 
 const NavBar = () => {
-  const dispatch=useDispatch();
-  const navigate=useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state?.user);
-        console.log("NavBar==>",{user})
+  console.log("NavBar==>", { user });
   const handleLogOut = async () => {
     try {
-      const res = await axios.get(
-        BASE_URL + "/user/logout",
-        { withCredentials: true }
-      );
-      if(res){
-        dispatch(removeUser(null))
-        navigate("/login")
+      const res = await axios.get(BASE_URL + "/user/logout", {
+        withCredentials: true,
+      });
+      if (res) {
+        dispatch(removeUser(null));
+        navigate("/login");
       }
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   };
   return (
@@ -54,7 +53,10 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-              <Link to="/connections">Connections</Link>
+                <Link to="/connections">Connections Request</Link>
+              </li>
+              <li>
+                <Link to="/allconnections">Connections</Link>
               </li>
               <li>
                 <button type="button" onClick={() => handleLogOut()}>

@@ -14,6 +14,8 @@ import Feed from "./components/Feed";
 import ConnectionsComponent from "./components/Connections";
 import ParentFeedComponent from "./components/ParentFeedComponent";
 import AllConnections from "./components/AllConnectiions";
+import ChatBox from "./components/Chat";
+
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
               <Route path="/feed" element={<ParentFeedComponent />} />
               <Route path="/connections" element={<ConnectionsComponent/>}/>
               <Route path="/allconnections" element={<AllConnections/>}/>
+              <Route path="/chat/:targetUserId" element={<ChatBox/>}/>
             </Route>
           </Routes>
           <Footer />
